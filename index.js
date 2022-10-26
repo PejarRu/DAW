@@ -4,35 +4,16 @@ const bodyParser = require('body-parser');
 const fichUtils = require('./utilidades.js');
 //Varibales
 const ruta = "output/juegos.json"
-/*
-let juegoEjemplo = [{
-    id: "01",
-    nombreJuego: "Far Cry 4",
-    descripcionJuego: "Jason es capturado por una banda criminal en una isla abandonada. Tras conseguir escapar...",
-    edadMinima: 18,
-    numeroJugadores: 1,
-    tipo: "Survival",
-    precio: 59.9
-},
-{
-    id: "02",
-    nombreJuego: "Far Cry 5",
-    descripcionJuego: "Manuel es capturado por una banda criminal en una isla abandonada. Tras conseguir escapar...",
-    edadMinima: 18,
-    numeroJugadores: 1,
-    tipo: "Survival",
-    precio: 65.6
-}];
+
+let juegoEjemplo = fichUtils.cargarJuegos(ruta)
 console.log("A: " + Date.now())
-fichUtils.guardarJuegos(ruta, juegoEjemplo);
-console.log("B")
 
 fichUtils.buscarJuego(ruta, "Far Cry 4");
-console.log("C")
+console.log("B")
 
 fichUtils.buscarJuego(ruta, "Far Cry 3");
-console.log("D ")
-*/
+console.log("C")
+
 
 //Cargamos las librerias y empezamos a escuchar el puerto
 const app = express();
@@ -48,7 +29,7 @@ console.log("##### ...Array cargado #####")
 /*   ######################    
 #### SERVICIOS GET - START ####
     #######################     */
-    
+
 app.get('/juegos', (req, res) => {
     let resultado;
 
