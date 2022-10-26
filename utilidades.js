@@ -1,41 +1,59 @@
 //Librerias y modulos
 const fs = require('fs');
 //Constantes y variables
-const archivo = "juegos.json"
+let archivo;
 //Devuelve el array de objetos (juegos) Javascript 
-//que se hayan leído de él en formato JSON o de lo
+//que se hayan leído del JSON o de lo
 //contrario, un array vacio
-function cargarJuegos(nombreJuego){
-    //Leemos el archivo donde guardamos los juegos
-    let textoJSON = fs.readFileSync(archivo, 'utf-8');
+function cargarJuegos(nombreFichero){
+    //Leemos y formateaos el archivo donde guardamos los juegos
+    let juegosArray = JSON.parse(fs.readFileSync(nombreFichero, 'utf-8'));
 
-    //Formateaos el texto JSON a array
-    let juegosArray = JSON.parse(textoJSON);
+    //Devolvemos el array
+    console.log(`Se ha encontrado en "${nombreFichero}": ${juegosArray.toString()}`);
 
-    //Entre todos los juegos del array, buscamos el que contenga el nombre
-    let juego = juegosArray.filter(j => j.nombreJuego == nombreJuego);
-
-    //Devolvemos el valor encontrado
-    console.log(juego);
-    return juego;
+    return juegosArray;
 }
 
-// guardará los objetos del array en el fichero en formato JSON. 
+//Guardará los objetos del array en el fichero en formato JSON. 
 //Si el array es nulo o vacío, no se hará nada con el fichero.
 function guardarJuegos(nombreFichero, arrayJuegos){
 
-    if (arrayJuegos > 0) {
+    if (arrayJuegos.length > 0) {
         //Array no esta vacio, debemos guardar los datos
         //Formateaos el array a texto JSON
         let arrayJuegosJSON = JSON.stringify(arrayJuegos);
-        console.log(arrayJuegosJSON);
-        //Escribimos el arrya al fichero
+
+        //Escribimos el array al fichero y notificamos por consola
         fs.writeFileSync(nombreFichero, arrayJuegosJSON);
+        console.log("################################");
+        console.log(`Se ha guardado en "${nombreFichero}": ${arrayJuegosJSON}`);
+        console.log("################################");
+    }else{
+        //Array vacio
+        console.log("El array esta vacio o solo contiene 1 objeto");
     }
-    //Array vacio o ya se han guardado los datos
+}
+
+//Devuelve el array de objetos (juegos) Javascript 
+//que se hayan leído 
+//Devuelve un objeto vacio si no encuentra nada
+function buscarJuego(nombreFichero, nombreABuscar){
+    //Leemos y formateaos el archivo donde guardamos los juegos
+    let juegosArray = JSON.parse(fs.readFileSync(nombreFichero, 'utf-8'));
+
+    //Filtamos por nombre
+    let objetoJuego = juego => nombreABuscar == juego.nombreJuego
+
+    //Devolvemos el objetoJuego
+    console.log(`Se ha encontrado en "${nombreFichero}": ${objetoJuego}`);
+
+    return objetoJuego;
 }
 
 module.exports = {
     cargarJuegos,
-    guardarJuegos
+    guardarJuegos,
+    buscarJuego,
+    nombreArchivo : archivo
 }
