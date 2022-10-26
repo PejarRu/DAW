@@ -1,7 +1,8 @@
 //Librerias y modulos
 const fs = require('fs');
 //Constantes y variables
-let archivo;
+
+
 //Devuelve el array de objetos (juegos) Javascript 
 //que se hayan leído del JSON o de lo
 //contrario, un array vacio
@@ -54,6 +55,5 @@ function buscarJuego(nombreFichero, nombreABuscar){
 module.exports = {
     cargarJuegos,
     guardarJuegos,
-    buscarJuego,
-    nombreArchivo : archivo
+    buscarJuego
 }
