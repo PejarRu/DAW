@@ -27,9 +27,7 @@ function guardarJuegos(nombreFichero, arrayJuegos){
 
         //Escribimos el array al fichero y notificamos por consola
         fs.writeFileSync(nombreFichero, arrayJuegosJSON);
-        console.log("################################");
-        console.log(`Se ha guardado en "${nombreFichero}": ${arrayJuegosJSON}`);
-        console.log("################################");
+        console.log(` ->  Se ha guardado el ultimo estado del array en "${nombreFichero}"`);
     }else{
         //Array vacio
         console.log("El array esta vacio o solo contiene 1 objeto");

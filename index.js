@@ -1,19 +1,9 @@
 //Librerias y modulos
 const express = require('express');
 const bodyParser = require('body-parser');
-const fichUtils = require('./utilidades.js');
+const fichUtils = require(__dirname + '/utilidades.js');
 //Varibales
 const ruta = "output/juegos.json"
-
-let juegoEjemplo = fichUtils.cargarJuegos(ruta)
-console.log("A: " + Date.now())
-
-fichUtils.buscarJuego(ruta, "Far Cry 4");
-console.log("B")
-
-fichUtils.buscarJuego(ruta, "Far Cry 3");
-console.log("C")
-
 
 //Cargamos las librerias y empezamos a escuchar el puerto
 const app = express();
@@ -31,8 +21,7 @@ console.log("##### ...Array cargado #####")
     #######################     */
 
 app.get('/juegos', (req, res) => {
-    let resultado;
-
+    let resultado = juegosArray
     //Procesamos el query '?anyos'
     if (req.query.anyos) {
         switch (true) {
@@ -64,9 +53,9 @@ app.get('/juegos', (req, res) => {
 });
 
 //Servicio para obtener un juego a partir de su id 
-app.get('/juego/:id', (req, res) => {
+app.get('/juegos/:id', (req, res) => {
 
-    let resultado = juegosArray.filter((juego) => juego.id == req.params['id'])
+    let resultado = juegosArray.filter((juego) => juego.id == req.params['id']);
 
     if (resultado.length > 0) {
         res.status(200).send({ ok: true, resultado: resultado[0] });
@@ -82,31 +71,25 @@ app.get('/juego/:id', (req, res) => {
 #### SERVICIOS POST - START ####
     ########################    */
 app.post('/juegos', (req, res) => {
-    //Asignacion de variables con la libreria body-parser
-    let id = req.body.id;
-    let nombreJuego = req.body.nombreJuego;
-    let descripcionJuego = req.body.descripcionJuego;
-    let edadMinima = req.body.edadMinima;
-    let numeroJugadores = req.body.numeroJugadores;
-    let tipo = req.body.tipo;
-    let precio = req.body.precio;
-
-    let nuevoJuego = [{
-        nombreJuego: nombreJuego,
-        descripcionJuego: descripcionJuego,
-        edadMinima: edadMinima,
-        numeroJugadores: numeroJugadores,
-        tipo: tipo,
-        precio: precio
-    }]
+     //Asignacion de variables con la libreria body-parser
+     let nuevoJuego = {
+        id: req.body.id,
+        nombreJuego: req.body.nombreJuego,
+        descripcionJuego: req.body.descripcionJuego,
+        edadMinima: req.body.edadMinima,
+        numeroJugadores: req.body.numeroJugadores,
+        tipo: req.body.tipo,
+        precio: req.body.precio
+    }
 
     //Buscamos un juego con el mismo id
     let existe = juegosArray.filter(
-        (juego) => juego.id == id
+        j => j.id == req.body.id
     );
-
+    
     if (existe.length == 0) {
-        // No existe juego. Añadimos al array
+        //No existe
+        //Añadimos al array
         juegosArray.push(nuevoJuego);
 
         //Guardamos el array nuevo en el ruta
@@ -131,7 +114,7 @@ app.post('/juegos', (req, res) => {
 
 app.put('/juegos/:id', (req, res) => {
     //Asignacion de variables con la libreria body-parser
-    let id = req.body.id;
+    let id = req.params['id'];
     let nombreJuego = req.body.nombreJuego;
     let descripcionJuego = req.body.descripcionJuego;
     let edadMinima = req.body.edadMinima;
@@ -178,14 +161,14 @@ app.put('/juegos/:id', (req, res) => {
 
 app.delete('/juegos/:id', (req, res) => {
     //Asignacion de variables con la libreria body-parser
-    let id = req.body.id;
+    let id = req.params['id'];
 
     //Buscamos el juego con ese id
     let juegoEliminado = juegosArray.filter(
-        (juego) => juego.nombre == id
+        (juego) => juego.id == id
     );
 
-    if (filtrado.length > 0) {
+    if (juegoEliminado.length > 0) {
         //El contacto existe. Eliminamos el juego dentro del arrayJuegos
         juegosArray.splice(juegosArray.indexOf(juegoEliminado))
 
