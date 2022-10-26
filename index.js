@@ -71,8 +71,8 @@ app.get('/juegos/:id', (req, res) => {
 #### SERVICIOS POST - START ####
     ########################    */
 app.post('/juegos', (req, res) => {
-     //Asignacion de variables con la libreria body-parser
-     let nuevoJuego = {
+    //Asignacion de variables con la libreria body-parser
+    let nuevoJuego = {
         id: req.body.id,
         nombreJuego: req.body.nombreJuego,
         descripcionJuego: req.body.descripcionJuego,
@@ -86,7 +86,7 @@ app.post('/juegos', (req, res) => {
     let existe = juegosArray.filter(
         j => j.id == req.body.id
     );
-    
+
     if (existe.length == 0) {
         //No existe
         //Añadimos al array
@@ -132,17 +132,17 @@ app.put('/juegos/:id', (req, res) => {
         let juego = existe[0];
 
         juego.nombreJuego = nombreJuego,
-        juego.descripcionJuego = descripcionJuego,
-        juego.edadMinima = edadMinima,
-        juego.numeroJugadores = numeroJugadores,
-        juego.tipo = tipo,
-        juego.precio = precio
+            juego.descripcionJuego = descripcionJuego,
+            juego.edadMinima = edadMinima,
+            juego.numeroJugadores = numeroJugadores,
+            juego.tipo = tipo,
+            juego.precio = precio
 
         //Guardamos el array nuevo en el ruta
         fichUtils.guardarJuegos(ruta, juegosArray);
 
         //Enviamos la respuesta
-        res.status(200).send({ ok: true, resultado: juego});
+        res.status(200).send({ ok: true, resultado: juego });
     } else {
         // No existe el id buscado. Enviamos error
         res.status(400).send({
