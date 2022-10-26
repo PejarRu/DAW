@@ -16,20 +16,21 @@ function cargarJuegos(nombreJuego){
     let juego = juegosArray.filter(j => j.nombreJuego == nombreJuego);
 
     //Devolvemos el valor encontrado
-    console.log(juego);
+    console.log("Se ha encontrado en .json: " + juego.toString());
     return juego;
 }
 
 // guardará los objetos del array en el fichero en formato JSON. 
 //Si el array es nulo o vacío, no se hará nada con el fichero.
-function guardarJuegos(nombreFichero, arrayJuegos){
+function guardarJuegos(nombreFichero = archivo, arrayJuegos){
 
     if (arrayJuegos > 0) {
         //Array no esta vacio, debemos guardar los datos
         //Formateaos el array a texto JSON
         let arrayJuegosJSON = JSON.stringify(arrayJuegos);
-        console.log(arrayJuegosJSON);
+
         //Escribimos el arrya al fichero
+        console.log("Se ha guardado en .json: " + arrayJuegosJSON);
         fs.writeFileSync(nombreFichero, arrayJuegosJSON);
     }
     //Array vacio o ya se han guardado los datos
