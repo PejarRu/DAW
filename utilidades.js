@@ -1,3 +1,7 @@
+/**
+ * Fichero utilidades: se encarga de cargar y 
+ * guardar datos de un archivo JSON
+ */
 //Librerias y modulos
 const fs = require('fs');
 //Constantes y variables

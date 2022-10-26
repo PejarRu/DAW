@@ -1,3 +1,8 @@
+/**
+ * Fichero index.js: Archivo principal con todos los 
+ * servicios de POST, PUT, GET, DELETE
+ */
+
 //Librerias y modulos
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -9,13 +14,21 @@ const ruta = "output/juegos.json"
 const app = express();
 app.use(bodyParser.json());
 
-app.listen(8080);
-
-//Cargamos todos los juegos a un arrya
+//Cargamos todos los juegos a un array
 console.log("##### Cargando array... #####")
 let juegosArray = fichUtils.cargarJuegos(ruta);
 console.log("##### ...Array cargado #####")
-
+/**
+ *let juegoEjemplo =  {
+        "id" = "01",
+        "nombreJuego" = "Far Cry 4",
+        "descripcionJuego" = "Jason es capturado por una banda criminal en una isla abandonada. Tras conseguir escapar...",
+        "edadMinima" = 18,
+        "numeroJugadores" = 1,
+        "tipo" = "Survival",
+        "precio" = 59.9
+    }
+ */ 
 /*   ######################    
 #### SERVICIOS GET - START ####
     #######################     */
@@ -189,3 +202,5 @@ app.delete('/juegos/:id', (req, res) => {
 /*  ######################## 
 #### SERVICIOS DELETE - END ####
     ########################     */
+//Escuchamos al puerto
+app.listen(8080);
