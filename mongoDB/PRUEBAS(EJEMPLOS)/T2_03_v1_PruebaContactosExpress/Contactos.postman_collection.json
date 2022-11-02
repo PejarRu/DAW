@@ -1,0 +1,129 @@
+{
+	"info": {
+		"name": "Contactos",
+		"_postman_id": "dfd37f2b-6da2-5188-4b82-c6e807ceff0d",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET /contactos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/contactos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contactos"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET /contactos/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/contactos/5a56a4d5b405560371f26c8f",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contactos",
+						"5a56a4d5b405560371f26c8f"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST /contactos",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nombre\":\"Juan Perez\", \"telefono\":\"112233445\", \"edad\":23}"
+				},
+				"url": {
+					"raw": "localhost:8080/contactos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contactos"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /contactos/:id",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nombre\":\"Juan Perez Jiménez\", \"telefono\": \"112233445\", \"edad\":24}"
+				},
+				"url": {
+					"raw": "localhost:8080/contactos/5aba2b89dbc31904c4856a0e",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contactos",
+						"5aba2b89dbc31904c4856a0e"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /contactos/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/contactos/5aba2b89dbc31904c4856a0e",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contactos",
+						"5aba2b89dbc31904c4856a0e"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
