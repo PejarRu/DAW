@@ -28,7 +28,7 @@ module.exports = (express, Libro, Autor) => {
     router.get('/:id', (req, res) => {
         Libro.findByPk(req.params['id']).then(resultado => {
             if (resultado) {
-                resultado.getAutor().then(autor => {
+                resultado.getAutor().then(autor => { 
                     res.status(200).send({ ok: true, resultado: resultado, autor: autor });
                 });
             }

@@ -3,7 +3,7 @@ module.exports = (express, Autor) => {
     let router = express.Router();
 
     // Servicio de listado
-    router.get('/', (req, res) => {
+    router.get('/', (req, res) => { 
         Autor.findAll().then(resultado => {
             res.status(200).send({ ok: true, resultado: resultado });
         }).catch(error => {
