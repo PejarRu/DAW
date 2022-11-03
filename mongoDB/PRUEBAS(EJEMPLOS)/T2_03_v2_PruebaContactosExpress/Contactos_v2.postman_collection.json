@@ -1,0 +1,252 @@
+{
+	"info": {
+		"_postman_id": "7db1f716-cb0d-491c-b341-587e0b605587",
+		"name": "Contactos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET /contactos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/contactos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contactos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /contactos/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/contactos/5a56a4d5b405560371f26c8f",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contactos",
+						"5a56a4d5b405560371f26c8f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /contactos",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nombre\":\"Juan Perez\", \"telefono\":\"112233445\", \"edad\":23}"
+				},
+				"url": {
+					"raw": "localhost:8080/contactos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contactos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /contactos/:id",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nombre\":\"Juan Perez Jiménez\", \"telefono\": \"112233445\", \"edad\":24}"
+				},
+				"url": {
+					"raw": "localhost:8080/contactos/5aba2b89dbc31904c4856a0e",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contactos",
+						"5aba2b89dbc31904c4856a0e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /contactos/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/contactos/5aba2b89dbc31904c4856a0e",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contactos",
+						"5aba2b89dbc31904c4856a0e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /restaurantes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/restaurantes",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restaurantes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /restaurantes",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nombre\": \"Vips\", \"direccion\": \"C/ Restaurantes\", \"telefono\": \"112233445\"}"
+				},
+				"url": {
+					"raw": "localhost:8080/restaurantes",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restaurantes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /restaurantes",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/restaurantes/5d7ac64ba29712144a3489b5",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restaurantes",
+						"5d7ac64ba29712144a3489b5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /mascotas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/mascotas",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"mascotas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /mascotas",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nombre\":\"Nora\", \"tipo\":\"perro\"}"
+				},
+				"url": {
+					"raw": "localhost:8080/mascotas",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"mascotas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /mascotas",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/mascotas/5d6ae5fb43dde60e191073fa",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"mascotas",
+						"5d6ae5fb43dde60e191073fa"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

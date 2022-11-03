@@ -1,0 +1,20 @@
+const mongoose = require('mongoose');
+
+//Esquema autor
+let autorSchema = new mongoose.Schema({
+    nombre: {
+        type: String,
+        required: true,
+        minlength: 1,
+        trim: true
+    },
+    anyoNacimiento: {
+        type: Number,
+        min: 0,
+        max: 2000
+    }
+});
+
+let Autor = mongoose.model('autor', autorSchema);
+
+module.exports.Autor;
