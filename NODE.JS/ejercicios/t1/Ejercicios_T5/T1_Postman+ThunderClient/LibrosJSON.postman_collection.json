@@ -1,0 +1,46 @@
+{
+	"info": {
+		"_postman_id": "c7ba8495-334e-4502-a7da-130cd8de637f",
+		"name": "LibrosJSON",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET/libros",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/libros",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"libros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET/libros/id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/libros/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"libros",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

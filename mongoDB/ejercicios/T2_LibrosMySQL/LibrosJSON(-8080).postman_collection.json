@@ -1,0 +1,201 @@
+{
+	"info": {
+		"_postman_id": "c7ba8495-334e-4502-a7da-130cd8de637f",
+		"name": "LibrosJSON(:8080)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET/libros",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/libros",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET/libros/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/libros/03",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libros",
+						"03"
+					],
+					"query": [
+						{
+							"key": "nombre",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST/libros",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"titulo\": \"El libro de la Jungla\",\r\n\"editorial\":\"ebukit\",\r\n\"precio\":19.99,\r\n\"autor\":\"Antons ber\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/libros",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libros"
+					],
+					"query": [
+						{
+							"key": "titulo",
+							"value": " titulo1, editorial editorial1, precio:1, autor: autor1",
+							"disabled": true
+						},
+						{
+							"key": "titulo",
+							"value": " titulo2, editorial editorial2, precio:2, autor: autor2",
+							"disabled": true
+						},
+						{
+							"key": "titulo",
+							"value": " titulo3, editorial editorial3, precio:3, autor: autor3",
+							"disabled": true
+						},
+						{
+							"key": "titulo",
+							"value": " titulo4, editorial editorial4, precio:4, autor: autor4",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT/libros/:id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"titulo\": \"Antifragil\",\r\n\"editorial\":\"bobik\",\r\n\"precio\": 25.5,\r\n\"autor\":\"Nassim Taleb\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/libros/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libros",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE/libros/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/libros/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libros",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST/autors",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombre",
+							"value": "Antons ber",
+							"type": "default"
+						},
+						{
+							"key": "editorial",
+							"value": "Berzon",
+							"type": "default"
+						},
+						{
+							"key": "anyoNacimiiento",
+							"value": "2000",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/autors/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autors",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

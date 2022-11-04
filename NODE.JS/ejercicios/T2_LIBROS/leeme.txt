@@ -1,0 +1,6 @@
+Hola Rosa, te habia escrito sobre el asunto al email de que no me va la conexion al MongoDB.
+De momento sigo sin poder solucionarlo y la plaza de entrega se cierra hoy. Por eso te envio
+la tarea, pero no doy por seguro de que el codigo funcione. No he podido comprobarlo.
+De todos modos, lo he revisado varias veces para evitar errore de sintaxis, y la logica del
+funcionamiento a mi vista parece estar correcta.
+Un saludo :).

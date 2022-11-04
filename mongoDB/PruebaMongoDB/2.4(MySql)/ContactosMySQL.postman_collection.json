@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "d63a7b72-9840-4cdd-a26f-b2e058c175de",
+		"name": "ContactosMySQL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET /contactos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/contactos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contactos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /contactos/id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/contactos/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contactos",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /contactos",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nombre\": \"John Doe\", \"telefono\": \"123456789\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/contactos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contactos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /contactos/id",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nombre\": \"Otro contacto\", \"telefono\": \"966778899\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/contactos/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contactos",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /contactos/id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/contactos/5",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contactos",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
