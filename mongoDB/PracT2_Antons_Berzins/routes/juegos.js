@@ -57,7 +57,27 @@ router.post('/', (req, res) => {
         res.status(400)
             .send({ ok: false, error: "Error insertando el juego: "+error });
     });
+})
 
+//Añadimos una nueva edicion a un juego existente
+router.post('/ediciones/:idJuego', (req, res) => {
+        let nuevoJuego = new Juegos({
+            nombre: req.body.nombre,
+            descripcion: req.body.descripcion,
+            edad: req.body.edad,
+            jugadores: req.body.jugadores,
+            tipo: req.body.tipo,
+            precio: req.body.precio,
+            imagen: req.body.imagen
+        });
+        nuevoJuego.Edicion.push({edicion: req.body.edicion, anyo: req.body.anyo})
+        nuevoJuego.save().then(resultado => {
+            res.status(200)
+                .send({ ok: true, resultado: resultado });
+        }).catch(error => {
+            res.status(400)
+                .send({ ok: false, error: "Error modificadno las ediciones del juego: "+error });
+        });
 })
 
 //Editamos un nuevo juego si existe
@@ -85,36 +105,6 @@ router.put('/:id', (req, res) => {
     });
 })
 
-//Añadimos una nueva edicion a un juego existente
-router.post('/ediciones/:idJuego', (req, res) => {
-    let edicion = {
-        "edicion": req.body.edicion,
-        "anyo": req.body.anyo
-    }
-    Juegos.findByIdAndUpdate(req.params.id, {
-        $set: {
-            nombre: req.body.nombre,
-            descripcion: req.body.descripcion,
-            edad: req.body.edad,
-            jugadores: req.body.jugadores,
-            tipo: req.body.tipo,
-            precio: req.body.precio,
-            imagen: req.body.imagen,
-            Edicion: edicion
-        }
-    }, { new: true }).then(resultado => {
-        if (resultado)
-            res.status(200)
-                .send({ ok: true, resultado: resultado });
-    }).catch(error => {
-        res.status(400)
-            .send({
-                ok: false,
-                error: "Error modificando las ediciones del juego"
-            });
-    });
-})
-
 //Eliminamos un juego alamacenado con TODOS SUS CAMPOS
 router.delete('/:id', (req, res) => {
     Juegos.findByIdAndRemove(req.params['id'])
@@ -134,8 +124,8 @@ router.delete('/:id', (req, res) => {
 
 //Eliminamos una edicion de un juego alamacenado
 router.delete('/ediciones/:idJuego/:idEdicion', (req, res) => {
-    Juegos.findOne(req.params['idJuego'])
-        .then(resultadoJuego.findByIdAndRemove(req.params['idEdicion'])
+    Juegos.findById(req.params['idJuego'])
+        .then(resultadoJuego.Edicion.pull(req.params['idEdicion'])
             .then(resultadoEdicion => {
                 if (resultadoEdicion)
                     res.status(200)
