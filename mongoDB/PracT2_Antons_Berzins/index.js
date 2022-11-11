@@ -1,14 +1,16 @@
 /**
- * Fichero index.js: Archivo principal con todos los 
- * servicios de POST, PUT, GET, DELETE
+ * Fichero index.js: Archivo principal con require
+ * de librerias y modulos principales, conexion con el 
+ * servidor y puesta en marcha en puerto especifico
  */
 
-//Librerias y modulos
+// Librerias y modulos
 const express = require('express');
 const mongoose = require('mongoose');
 
 const juegos = require(__dirname + '/routes/juegos');
 
+// Conexion con el servidor mongoose
 mongoose.connect('mongodb://0.0.0.0:27017/juegos', { useNewUrlParser: true });
 
 // Servidor Express

@@ -1,5 +1,22 @@
+/**
+ * Fichero models/juego.js: Archivo con el esquema
+ * de prototipado para "juego" y "edicion" en mongoose
+ */
 const mongoose = require('mongoose');
-let Juegos = require(__dirname + '/../models/juego.js');
+
+//Esquema Edicion
+let schemaEdicion = new mongoose.Schema({
+    edicion: {
+        type: String,
+        required: true,
+    },
+    anyo: {
+        required: false,
+        type: Number,
+        min: 2000,
+        max: new Date().getFullYear()
+    }
+});
 
 //Esquema Juego
 let schemaJuego = new mongoose.Schema({
@@ -26,7 +43,7 @@ let schemaJuego = new mongoose.Schema({
     tipo: {
         type: String,
         required: false,
-        enum: ['rol','escape','dados','fichas','cartas','tablero']
+        enum: ['rol', 'escape', 'dados', 'fichas', 'cartas', 'tablero']
     },
     precio: {
         type: Number,
@@ -37,13 +54,7 @@ let schemaJuego = new mongoose.Schema({
         type: String,
         required: false
     },
-    //Ediciones: schemaEdicion,
-    Ediciones: {
-        required: false,
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'edicion'
-    }
-    
+    Ediciones: [schemaEdicion]
 });
 //Asociacion esquema Juego
 let Juego = mongoose.model('juego', schemaJuego);
