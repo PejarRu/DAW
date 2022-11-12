@@ -55,34 +55,27 @@ router.post('/', (req, res) => {
             .send({ ok: true, resultado: resultado });
     }).catch(error => {
         res.status(400)
-            .send({ ok: false, error: "Error insertando el juego: "+error });
+            .send({ ok: false, error: "Error insertando el juego: " + error });
     });
 })
 
 //Añadimos una nueva edicion a un juego existente
 router.post('/ediciones/:idJuego', (req, res) => {
-        let nuevoJuego = new Juegos({
-            nombre: req.body.nombre,
-            descripcion: req.body.descripcion,
-            edad: req.body.edad,
-            jugadores: req.body.jugadores,
-            tipo: req.body.tipo,
-            precio: req.body.precio,
-            imagen: req.body.imagen
-        });
-        nuevoJuego.Edicion.push({edicion: req.body.edicion, anyo: req.body.anyo})
-        nuevoJuego.save().then(resultado => {
+    Juegos.findById(req.params['idJuego'])
+        .then(juego => {
+            juego.Ediciones.push({ edicion: req.body.edicion, anyo: req.body.anyo })
+            juego.save()
             res.status(200)
-                .send({ ok: true, resultado: resultado });
+                .send({ ok: true, resultado: juego.Ediciones });
         }).catch(error => {
             res.status(400)
-                .send({ ok: false, error: "Error modificadno las ediciones del juego: "+error });
-        });
-})
+                .send({ ok: false, error: "Error modificadno las ediciones del juego: " + error });
+        })
+});
 
 //Editamos un nuevo juego si existe
 router.put('/:id', (req, res) => {
-    Juegos.findByIdAndUpdate(req.params.id, {
+    Juegos.findByIdAndUpdate(req.params['id'], {
         $set: {
             nombre: req.body.nombre,
             descripcion: req.body.descripcion,
@@ -124,16 +117,21 @@ router.delete('/:id', (req, res) => {
 
 //Eliminamos una edicion de un juego alamacenado
 router.delete('/ediciones/:idJuego/:idEdicion', (req, res) => {
-    Juegos.findById(req.params['idJuego'])
-        .then(resultadoJuego.Edicion.pull(req.params['idEdicion'])
-            .then(resultadoEdicion => {
-                if (resultadoEdicion)
-                    res.status(200)
-                        .send({ ok: true, resultado: resultadoEdicion });
-            }).catch(error => {
-                res.status(400)
-                    .send({ ok: false, error: "Error eliminando la edicion del juego" });
-            }));
-});
+    Juegos.findByIdAndUpdate(req.params.idJuego)
+        .then(juego => {
+            console.log(juego)
+            juego.Ediciones.pull(req.params.idEdicion)
+            juego.save()
+            //juego.Ediciones.id(req.params.idEdicion).remove()
+            console.log(juego)
+
+                res.status(200)
+                    .send({ ok: true, resultado: juego });
+        }).catch(error => {
+            res.status(400)
+                .send({ ok: false, error: "Error eliminando la edicion del juego" });
+        })
+    });
+
 
 module.exports = router;
