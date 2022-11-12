@@ -55,7 +55,7 @@ router.post('/', (req, res) => {
             .send({ ok: true, resultado: resultado });
     }).catch(error => {
         res.status(400)
-            .send({ ok: false, error: "Error insertando el juego: " + error });
+            .send({ ok: false, error: "Error insertando el juego" });
     });
 })
 
@@ -69,7 +69,7 @@ router.post('/ediciones/:idJuego', (req, res) => {
                 .send({ ok: true, resultado: juego.Ediciones });
         }).catch(error => {
             res.status(400)
-                .send({ ok: false, error: "Error modificadno las ediciones del juego: " + error });
+                .send({ ok: false, error: "Error modificadno las ediciones del juego"});
         })
 });
 
@@ -100,7 +100,7 @@ router.put('/:id', (req, res) => {
 
 //Eliminamos un juego alamacenado con TODOS SUS CAMPOS
 router.delete('/:id', (req, res) => {
-    Juegos.findByIdAndRemove(req.params['id'])
+    Juegos.findByIdAndRemove(req.params.id)
         .then(resultado => {
             if (resultado)
                 res.status(200)
@@ -118,15 +118,12 @@ router.delete('/:id', (req, res) => {
 //Eliminamos una edicion de un juego alamacenado
 router.delete('/ediciones/:idJuego/:idEdicion', (req, res) => {
     Juegos.findByIdAndUpdate(req.params.idJuego)
-        .then(juego => {
-            console.log(juego)
-            juego.Ediciones.pull(req.params.idEdicion)
-            juego.save()
+        .then(resultado => {
+            resultado.Ediciones.pull(req.params.idEdicion)
+            resultado.save()
             //juego.Ediciones.id(req.params.idEdicion).remove()
-            console.log(juego)
-
                 res.status(200)
-                    .send({ ok: true, resultado: juego });
+                    .send({ ok: true, resultado: resultado });
         }).catch(error => {
             res.status(400)
                 .send({ ok: false, error: "Error eliminando la edicion del juego" });

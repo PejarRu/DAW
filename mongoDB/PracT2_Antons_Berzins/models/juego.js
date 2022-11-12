@@ -11,8 +11,8 @@ let schemaEdicion = new mongoose.Schema({
         required: true,
     },
     anyo: {
-        required: false,
         type: Number,
+        required: false,
         min: 2000,
         max: new Date().getFullYear()
     }
@@ -31,14 +31,14 @@ let schemaJuego = new mongoose.Schema({
     },
     edad: {
         type: Number,
-        required: false,
-        // Rango de 1a 99 (ambos incluidos)
+        required: true,
+        // Rango de 1 a 99 (ambos incluidos)
         min: 1,
         max: 99
     },
     jugadores: {
         type: Number,
-        required: false
+        required: true
     },
     tipo: {
         type: String,
