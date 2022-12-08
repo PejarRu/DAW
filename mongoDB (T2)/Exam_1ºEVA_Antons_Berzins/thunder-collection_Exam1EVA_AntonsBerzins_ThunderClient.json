@@ -1,0 +1,147 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Exam1EVA_AntonsBerzins_ThunderClient",
+    "dateExported": "2022-11-30T14:28:28.554Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "ce00ce94-56a5-4615-be39-c0bacc4b03a4",
+            "colId": "c9c01519-3d8c-410c-bbdc-b35b83e8371d",
+            "containerId": "",
+            "name": "GET/restaurantes",
+            "url": "localhost:8080/restaurantes",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2022-11-30T14:27:16.672Z",
+            "modified": "2022-11-30T14:27:16.672Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "da11c662-9a2b-45a4-884b-f5b6343c5101",
+            "colId": "c9c01519-3d8c-410c-bbdc-b35b83e8371d",
+            "containerId": "",
+            "name": "GET?anyo&tipo",
+            "url": "localhost:8080/restaurantes?anyos=13&tipo=Survival",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2022-11-30T14:27:16.673Z",
+            "modified": "2022-11-30T14:27:16.673Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "anyos",
+                    "value": "13",
+                    "isPath": false
+                },
+                {
+                    "name": "tipo",
+                    "value": "Survival",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "20ef019c-7ec7-48de-9f70-ff548d21b182",
+            "colId": "c9c01519-3d8c-410c-bbdc-b35b83e8371d",
+            "containerId": "",
+            "name": "GET/restaurantes/3(No hay)",
+            "url": "/localhost:8080/restaurantes/3",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2022-11-30T14:27:16.674Z",
+            "modified": "2022-11-30T14:27:16.674Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "de97a509-7def-4cc5-b72a-a87fb882b1c7",
+            "colId": "c9c01519-3d8c-410c-bbdc-b35b83e8371d",
+            "containerId": "",
+            "name": "GET/restaurantes/07",
+            "url": "/localhost:8080/restaurantes/07",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2022-11-30T14:27:16.675Z",
+            "modified": "2022-11-30T14:27:16.675Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "2979b653-3c1e-4d46-a2a3-18ebd5995849",
+            "colId": "c9c01519-3d8c-410c-bbdc-b35b83e8371d",
+            "containerId": "",
+            "name": "POST/restaurantes",
+            "url": "/localhost:8080/restaurantes",
+            "method": "POST",
+            "sortNum": 90000,
+            "created": "2022-11-30T14:27:16.676Z",
+            "modified": "2022-11-30T14:27:16.676Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\"id\": 1004, \"nombreJuego\": \"DragonBall - Super(videogame)\",\"descripcionJuego\": \"Goku y vegeta se incsriben al toorneo de...\",\"edadMinima\": 18,\"numeroJugadores\": 2,\"tipo\": \"Fighter\",\"precio\": 40.1}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "6f8c496d-b5ef-4198-b081-175b710cfb68",
+            "colId": "c9c01519-3d8c-410c-bbdc-b35b83e8371d",
+            "containerId": "",
+            "name": "PUT/restaurantes/07",
+            "url": "/localhost:8080/restaurantes/07",
+            "method": "PUT",
+            "sortNum": 110000,
+            "created": "2022-11-30T14:27:16.677Z",
+            "modified": "2022-11-30T14:27:16.677Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n        \"nombreJuego\": \"God of War: Odin\",\n        \"descripcionJuego\": \"Kratos lleva ocultado en el bosque ya varios años. Ha olvidado su vieja vida. Pero es visitado un dia por...\",\n        \"edadMinima\": 15,\n        \"numeroJugadores\": 1,\n        \"tipo\": \"Historia\",\n        \"precio\": 71\n    }",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "a3a85490-afdf-42d1-bef7-7044eebe8e97",
+            "colId": "c9c01519-3d8c-410c-bbdc-b35b83e8371d",
+            "containerId": "",
+            "name": "PUT/restaurantes/34(error)",
+            "url": "/localhost:8080/restaurantes/34",
+            "method": "PUT",
+            "sortNum": 120000,
+            "created": "2022-11-30T14:27:16.678Z",
+            "modified": "2022-11-30T14:27:16.678Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n        \"nombreJuego\": \"God of War: Odin\",\n        \"descripcionJuego\": \"Kratos lleva ocultado en el bosque ya varios años. Ha olvidado su vieja vida. Pero es visitado un dia por...\",\n        \"edadMinima\": 15,\n        \"numeroJugadores\": 1,\n        \"tipo\": \"Historia\",\n        \"precio\": 71\n    }",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "d3768717-65a6-4ada-8689-1e329c3972e9",
+            "colId": "c9c01519-3d8c-410c-bbdc-b35b83e8371d",
+            "containerId": "",
+            "name": "DELETE/restaurantes/1001",
+            "url": "/localhost:8080/restaurantes/1004",
+            "method": "DELETE",
+            "sortNum": 130000,
+            "created": "2022-11-30T14:27:16.679Z",
+            "modified": "2022-11-30T14:27:16.679Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
